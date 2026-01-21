@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Playground</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #11111b;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        .pyrepl {
+            width: 700px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pyrepl" data-packages="typer"></div>
+    <script src="https://unpkg.com/pyrepl-web@0.1.8/dist/pyrepl.js"></script>
+</body>
+</html>
