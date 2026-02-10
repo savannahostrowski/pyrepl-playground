@@ -15,16 +15,66 @@
         body {
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: #11111b;
+            gap: 1.25rem;
+            padding: 2rem 1rem;
+            background: #1e1e2e;
             font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        h1 {
+            color: #cdd6f4;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        h1 span {
+            color: #b4befe;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        main a {
+            color: #7f849c;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        main a:hover {
+            color: #b4befe;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 1.5rem;
+            color: #45475a;
+            font-size: 0.75rem;
+        }
+
+        footer a {
+            color: #45475a;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #7f849c;
         }
 
         py-repl {
             display: block;
             width: min(700px, 100vw - 2rem);
-            height: 400px;
+            height: min(400px, 60vh);
         }
 
         py-repl .pyrepl {
@@ -37,7 +87,12 @@
 </head>
 
 <body>
-    <py-repl src="script.py" packages="pyfiglet"></py-repl>
+    <h1><span>&#x276F;</span> Python Playground</h1>
+    <main>
+        <py-repl src="script.py" packages="pyfiglet" repl-title=""></py-repl>
+        <a href="https://github.com/savannahostrowski/pyrepl-web" target="_blank" rel="noopener noreferrer">Learn more about pyrepl-web on GitHub</a>
+    </main>
+    <footer>Made with ❤️ by <a href="https://github.com/savannahostrowski" target="_blank" rel="noopener noreferrer">Savannah Ostrowski</a></footer>
 </body>
 
 </html>
