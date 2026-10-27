@@ -1,18 +1,17 @@
 from pathlib import Path
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.responses import PlainTextResponse
-from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 
-app = FastAPI()
+app = FastAPI(docs_url=None, redoc_url=None)
+root = Path(__file__).parent
+
 
 @app.get("/script.py")
 async def script():
-    content = (Path(__file__).parent / "templates" / "script.py").read_text()
+    content = (root / "templates" / "script.py").read_text()
     return PlainTextResponse(content)
-templates = Jinja2Templates(directory=Path(__file__).parent / "templates")
 
 
-@app.get("/")
-async def index(request: Request):
-    return templates.TemplateResponse(request, "index.html")
+app.mount("/", StaticFiles(directory=root / "static", html=True), name="website")
